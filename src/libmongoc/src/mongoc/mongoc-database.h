@@ -31,7 +31,7 @@
 BSON_BEGIN_DECLS
 
 
-typedef struct _mongoc_database_t mongoc_database_t;
+typedef struct mongo_database mongoc_database_t;
 
 
 MONGOC_EXPORT (const char *)

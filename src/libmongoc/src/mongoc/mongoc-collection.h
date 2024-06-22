@@ -35,7 +35,7 @@
 BSON_BEGIN_DECLS
 
 
-typedef struct _mongoc_collection_t mongoc_collection_t;
+typedef struct mongo_collection mongoc_collection_t;
 
 MONGOC_EXPORT (mongoc_cursor_t *)
 mongoc_collection_aggregate (mongoc_collection_t *collection,

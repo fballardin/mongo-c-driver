@@ -29,7 +29,7 @@
 BSON_BEGIN_DECLS
 
 
-struct _mongoc_database_t {
+struct mongo_database {
    mongoc_client_t *client;
    char *name;
    mongoc_read_prefs_t *read_prefs;

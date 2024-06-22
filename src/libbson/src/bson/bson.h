@@ -553,7 +553,7 @@ bson_array_as_canonical_extended_json (const bson_t *bson, size_t *length);
 
 // bson_array_builder_t defines an API for building arrays.
 // BSON arrays require sequential numeric keys "0", "1", "2", ...
-typedef struct _bson_array_builder_t bson_array_builder_t;
+typedef struct bson_array_builder bson_array_builder_t;
 
 // bson_array_builder_new may be used to build a top-level BSON array. Example:
 // `[1,2,3]`.

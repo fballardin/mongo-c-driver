@@ -124,14 +124,14 @@ typedef struct _bson_json_opts_t bson_json_opts_t;
  * This structure is meant to fit in two sequential 64-byte cachelines.
  */
 #ifdef BSON_MEMCHECK
-BSON_ALIGNED_BEGIN (128) typedef struct _bson_t {
+BSON_ALIGNED_BEGIN (128) typedef struct bson {
    uint32_t flags; /* Internal flags for the bson_t. */
    uint32_t len;   /* Length of BSON data. */
    char *canary;   /* For leak checks. */
    uint8_t padding[120 - sizeof (char *)];
 } bson_t BSON_ALIGNED_END (128);
 #else
-BSON_ALIGNED_BEGIN (128) typedef struct _bson_t {
+BSON_ALIGNED_BEGIN (128) typedef struct bson {
    uint32_t flags;       /* Internal flags for the bson_t. */
    uint32_t len;         /* Length of BSON data. */
    uint8_t padding[120]; /* Padding for stack allocation. */
@@ -174,7 +174,7 @@ BSON_STATIC_ASSERT2 (bson_t, sizeof (bson_t) == 128);
  * on http://bsonspec.org. If you would like the bson_oid_t in string form
  * see bson_oid_to_string() or bson_oid_to_string_r().
  */
-typedef struct {
+typedef struct bson_oid {
    uint8_t bytes[12];
 } bson_oid_t;
 
@@ -361,7 +361,7 @@ typedef struct _bson_value_t {
  * after using it.
  */
 BSON_ALIGNED_BEGIN (128)
-typedef struct {
+typedef struct bson_iter {
    const uint8_t *raw; /* The raw buffer being iterated. */
    uint32_t len;       /* The length of raw. */
    uint32_t off;       /* The offset within the buffer. */
@@ -469,7 +469,7 @@ typedef struct {
 #define BSON_ERROR_BUFFER_SIZE 504
 
 BSON_ALIGNED_BEGIN (8)
-typedef struct _bson_error_t {
+typedef struct bson_error {
    uint32_t domain;
    uint32_t code;
    char message[BSON_ERROR_BUFFER_SIZE];

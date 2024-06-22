@@ -948,7 +948,7 @@ _mongoc_cse_is_enabled (mongoc_client_t *client)
 
 mongoc_collection_t *
 mongoc_client_encryption_create_encrypted_collection (mongoc_client_encryption_t *enc,
-                                                      struct _mongoc_database_t *database,
+                                                      struct mongo_database *database,
                                                       const char *name,
                                                       const bson_t *in_options,
                                                       bson_t *opt_out_options,
@@ -2762,7 +2762,7 @@ _auto_datakey (struct auto_datakey_context *ctx)
 
 mongoc_collection_t *
 mongoc_client_encryption_create_encrypted_collection (mongoc_client_encryption_t *enc,
-                                                      struct _mongoc_database_t *database,
+                                                      struct mongo_database *database,
                                                       const char *name,
                                                       const bson_t *in_options,
                                                       bson_t *opt_out_options,

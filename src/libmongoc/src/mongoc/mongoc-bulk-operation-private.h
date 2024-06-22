@@ -26,7 +26,7 @@
 
 BSON_BEGIN_DECLS
 
-struct _mongoc_bulk_operation_t {
+struct mongo_bulk {
    char *database;
    char *collection;
    mongoc_client_t *client;

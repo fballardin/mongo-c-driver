@@ -7,10 +7,10 @@
 
 #include <stddef.h>
 
-struct _bson_error_t;
+struct bson_error;
 
 /** Type of an object constructor function */
-typedef void (*_erased_constructor_fn) (void *self, void *userdata, struct _bson_error_t *error_out);
+typedef void (*_erased_constructor_fn) (void *self, void *userdata, struct bson_error *error_out);
 /** Type of an object destructor function */
 typedef void (*_erased_destructor_fn) (void *self, void *userdata);
 /** Type of an object pruning predicate */
@@ -141,7 +141,7 @@ mongoc_ts_pool_free (mongoc_ts_pool *pool);
  * with `mongo_ts_pool_free`.
  */
 void *
-mongoc_ts_pool_get (mongoc_ts_pool *pool, struct _bson_error_t *error);
+mongoc_ts_pool_get (mongoc_ts_pool *pool, struct bson_error *error);
 
 /**
  * @brief Attempt to pop an object from the pool.
@@ -252,7 +252,7 @@ mongoc_ts_pool_visit_each (mongoc_ts_pool *pool,
    } PoolName;                                                                                                    \
                                                                                                                   \
    BSON_MAYBE_UNUSED static BSON_INLINE PoolName PoolName##_new_with_params (                                     \
-      void (*constructor) (ElementType *, UserDataType *, struct _bson_error_t *),                                \
+      void (*constructor) (ElementType *, UserDataType *, struct bson_error *),                                \
       void (*destructor) (ElementType *, UserDataType *),                                                         \
       int (*prune_predicate) (ElementType *, UserDataType *),                                                     \
       UserDataType *userdata)                                                                                     \
@@ -289,7 +289,7 @@ mongoc_ts_pool_visit_each (mongoc_ts_pool *pool,
       return (ElementType *) mongoc_ts_pool_get_existing (p.pool);                                                \
    }                                                                                                              \
                                                                                                                   \
-   BSON_MAYBE_UNUSED static BSON_INLINE ElementType *PoolName##_get (PoolName p, struct _bson_error_t *error)     \
+   BSON_MAYBE_UNUSED static BSON_INLINE ElementType *PoolName##_get (PoolName p, struct bson_error *error)     \
    {                                                                                                              \
       return (ElementType *) mongoc_ts_pool_get (p.pool, error);                                                  \
    }                                                                                                              \

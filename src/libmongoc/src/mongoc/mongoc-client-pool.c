@@ -33,7 +33,7 @@
 #include "mongoc-ssl-private.h"
 #endif
 
-struct _mongoc_client_pool_t {
+struct mongo_client_pool {
    bson_mutex_t mutex;
    mongoc_cond_t cond;
    mongoc_queue_t queue;

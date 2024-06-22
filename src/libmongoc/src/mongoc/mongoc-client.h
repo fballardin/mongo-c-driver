@@ -72,7 +72,7 @@ BSON_BEGIN_DECLS
  * The mongoc_client_t structure maintains information about a connection to
  * a MongoDB server.
  */
-typedef struct _mongoc_client_t mongoc_client_t;
+typedef struct mongo_client mongoc_client_t;
 
 
 typedef struct _mongoc_client_session_t mongoc_client_session_t;

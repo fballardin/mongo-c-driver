@@ -22,12 +22,12 @@
 #include <bson/bson.h>
 
 /* Forward declare */
-struct _mongoc_client_t;
-struct _mongoc_client_pool_t;
-struct _mongoc_cursor_t;
+struct mongo_client;
+struct mongo_client_pool;
+struct mongo_cursor;
 
-struct _mongoc_collection_t;
-struct _mongoc_database_t;
+struct mongo_collection;
+struct mongo_database;
 
 #define MONGOC_AEAD_AES_256_CBC_HMAC_SHA_512_RANDOM "AEAD_AES_256_CBC_HMAC_SHA_512-Random"
 #define MONGOC_AEAD_AES_256_CBC_HMAC_SHA_512_DETERMINISTIC "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic"
@@ -55,11 +55,11 @@ MONGOC_EXPORT (void)
 mongoc_auto_encryption_opts_destroy (mongoc_auto_encryption_opts_t *opts);
 
 MONGOC_EXPORT (void)
-mongoc_auto_encryption_opts_set_keyvault_client (mongoc_auto_encryption_opts_t *opts, struct _mongoc_client_t *client);
+mongoc_auto_encryption_opts_set_keyvault_client (mongoc_auto_encryption_opts_t *opts, struct mongo_client *client);
 
 MONGOC_EXPORT (void)
 mongoc_auto_encryption_opts_set_keyvault_client_pool (mongoc_auto_encryption_opts_t *opts,
-                                                      struct _mongoc_client_pool_t *pool);
+                                                      struct mongo_client_pool *pool);
 
 MONGOC_EXPORT (void)
 mongoc_auto_encryption_opts_set_keyvault_namespace (mongoc_auto_encryption_opts_t *opts,
@@ -110,7 +110,7 @@ mongoc_client_encryption_opts_destroy (mongoc_client_encryption_opts_t *opts);
 
 MONGOC_EXPORT (void)
 mongoc_client_encryption_opts_set_keyvault_client (mongoc_client_encryption_opts_t *opts,
-                                                   struct _mongoc_client_t *keyvault_client);
+                                                   struct mongo_client *keyvault_client);
 
 MONGOC_EXPORT (void)
 mongoc_client_encryption_opts_set_keyvault_namespace (mongoc_client_encryption_opts_t *opts,
@@ -172,7 +172,7 @@ mongoc_client_encryption_get_key (mongoc_client_encryption_t *client_encryption,
                                   bson_t *key_doc,
                                   bson_error_t *error);
 
-MONGOC_EXPORT (struct _mongoc_cursor_t *)
+MONGOC_EXPORT (struct mongo_cursor *)
 mongoc_client_encryption_get_keys (mongoc_client_encryption_t *client_encryption, bson_error_t *error);
 
 MONGOC_EXPORT (bool)
@@ -290,9 +290,9 @@ mongoc_client_encryption_datakey_opts_set_keymaterial (mongoc_client_encryption_
 MONGOC_EXPORT (const char *)
 mongoc_client_encryption_get_crypt_shared_version (mongoc_client_encryption_t const *enc) BSON_GNUC_WARN_UNUSED_RESULT;
 
-MONGOC_EXPORT (struct _mongoc_collection_t *)
+MONGOC_EXPORT (struct mongo_collection *)
 mongoc_client_encryption_create_encrypted_collection (mongoc_client_encryption_t *enc,
-                                                      struct _mongoc_database_t *database,
+                                                      struct mongo_database *database,
                                                       const char *name,
                                                       const bson_t *in_options,
                                                       bson_t *opt_out_options,

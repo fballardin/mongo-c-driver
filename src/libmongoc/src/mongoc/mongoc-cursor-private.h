@@ -115,7 +115,7 @@ typedef struct _mongoc_cursor_response_t {
    bson_t current_doc;     /* the current doc inside the batch array */
 } mongoc_cursor_response_t;
 
-struct _mongoc_cursor_t {
+struct mongo_cursor {
    mongoc_client_t *client;
    uint32_t client_generation;
 

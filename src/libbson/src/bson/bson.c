@@ -3341,7 +3341,7 @@ bson_concat (bson_t *dst, const bson_t *src)
    return true;
 }
 
-struct _bson_array_builder_t {
+struct bson_array_builder {
    uint32_t index;
    bson_t bson;
 };

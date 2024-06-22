@@ -18,6 +18,7 @@ CPackConfig.cmake
 CPackSourceConfig.cmake
 CTestTestfile.cmake
 _build/
+_install/
 dist_manifest.txt
 test-results.json
 VERSION_RELEASED

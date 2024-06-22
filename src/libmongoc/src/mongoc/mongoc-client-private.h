@@ -86,9 +86,9 @@ BSON_BEGIN_DECLS
 #define WIRE_VERSION_MIN WIRE_VERSION_3_6 /* a.k.a. minWireVersion */
 #define WIRE_VERSION_MAX WIRE_VERSION_7_0 /* a.k.a. maxWireVersion */
 
-struct _mongoc_collection_t;
+struct mongo_collection;
 
-struct _mongoc_client_t {
+struct mongo_client {
    mongoc_uri_t *uri;
    mongoc_cluster_t cluster;
    bool in_exhaust;

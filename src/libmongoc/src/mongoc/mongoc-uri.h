@@ -90,7 +90,7 @@
 BSON_BEGIN_DECLS
 
 
-typedef struct _mongoc_uri_t mongoc_uri_t;
+typedef struct mongo_uri mongoc_uri_t;
 
 
 MONGOC_EXPORT (mongoc_uri_t *)

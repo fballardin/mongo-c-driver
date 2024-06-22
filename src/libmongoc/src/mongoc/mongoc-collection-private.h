@@ -26,7 +26,7 @@
 BSON_BEGIN_DECLS
 
 
-struct _mongoc_collection_t {
+struct mongo_collection {
    mongoc_client_t *client;
    char *ns;
    uint32_t nslen;

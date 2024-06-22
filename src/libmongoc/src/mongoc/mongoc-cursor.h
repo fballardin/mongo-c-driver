@@ -27,11 +27,11 @@
 
 BSON_BEGIN_DECLS
 
-typedef struct _mongoc_cursor_t mongoc_cursor_t;
+typedef struct mongo_cursor mongoc_cursor_t;
 
 
 /* forward decl */
-struct _mongoc_client_t;
+struct mongo_client;
 
 MONGOC_EXPORT (mongoc_cursor_t *)
 mongoc_cursor_clone (const mongoc_cursor_t *cursor) BSON_GNUC_WARN_UNUSED_RESULT;
@@ -72,12 +72,12 @@ mongoc_cursor_set_max_await_time_ms (mongoc_cursor_t *cursor, uint32_t max_await
 MONGOC_EXPORT (uint32_t)
 mongoc_cursor_get_max_await_time_ms (const mongoc_cursor_t *cursor);
 MONGOC_EXPORT (mongoc_cursor_t *)
-mongoc_cursor_new_from_command_reply (struct _mongoc_client_t *client,
+mongoc_cursor_new_from_command_reply (struct mongo_client *client,
                                       bson_t *reply,
                                       uint32_t server_id) BSON_GNUC_WARN_UNUSED_RESULT
    BSON_GNUC_DEPRECATED_FOR (mongoc_cursor_new_from_command_reply_with_opts);
 MONGOC_EXPORT (mongoc_cursor_t *)
-mongoc_cursor_new_from_command_reply_with_opts (struct _mongoc_client_t *client,
+mongoc_cursor_new_from_command_reply_with_opts (struct mongo_client *client,
                                                 bson_t *reply,
                                                 const bson_t *opts) BSON_GNUC_WARN_UNUSED_RESULT;
 

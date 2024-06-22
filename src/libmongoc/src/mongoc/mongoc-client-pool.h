@@ -34,7 +34,7 @@
 BSON_BEGIN_DECLS
 
 
-typedef struct _mongoc_client_pool_t mongoc_client_pool_t;
+typedef struct mongo_client_pool mongoc_client_pool_t;
 
 
 MONGOC_EXPORT (mongoc_client_pool_t *)

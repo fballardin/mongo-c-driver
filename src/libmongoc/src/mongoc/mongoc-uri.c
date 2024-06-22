@@ -39,7 +39,7 @@
 
 #include <bson-dsl.h>
 
-struct _mongoc_uri_t {
+struct mongo_uri {
    char *str;
    bool is_srv;
    char srv[BSON_HOST_NAME_MAX + 1];

@@ -37,7 +37,7 @@ BSON_BEGIN_DECLS
 /* forward decl */
 struct _mongoc_client_session_t;
 
-typedef struct _mongoc_bulk_operation_t mongoc_bulk_operation_t;
+typedef struct mongo_bulk mongoc_bulk_operation_t;
 typedef struct _mongoc_bulk_write_flags_t mongoc_bulk_write_flags_t;
 
 
